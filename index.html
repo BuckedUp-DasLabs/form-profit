@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- SCRIPTS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/BuckedUp-DasLabs/Custom-Select@master/style.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/gh/BuckedUp-DasLabs/Custom-Select@master/custom-select.js"
+      defer
+    ></script>
+    <script src="./src/js/scripts.js" defer></script>
+    <link rel="stylesheet" href="./src/scss/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <form id="custom-form">
+      <div class="padding-sides">
+        <h3>Sign Up for Free and Get Start Increasing your PROFITS!</h3>
+        <label>
+          <span class="label-text">First Name</span>
+          <input id="first-name" type="text" required/>
+        </label>
+        <label>
+          <span class="label-text">Last Name</span>
+          <input id="last-name" type="text" required/>
+        </label>
+        <label>
+          <span class="label-text">Email</span>
+          <input
+            id="email"
+            type="email"
+            regex="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+            required/>
+        </label>
+        <label>
+          <span class="label-text">Confirm your email</span>
+          <input
+            id="email-confirm"
+            type="email"
+            match="email"
+            regex="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+            required/>
+        </label>
+        <label>
+          <span class="label-text">Cell Phone</span>
+          <input
+            id="phone"
+            type="tel"
+            regex="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,7}$"
+            required
+          />
+        </label>
+        <label>
+          <span class="label-text">State/Region/Province</span>
+          <select id="state" custom-select>
+            <option value="">Please Select</option>
+          </select>
+        </label>
+        <label>
+          <span class="label-text">City</span>
+          <input id="city" type="text" required/>
+        </label>
+        <label>
+          <span class="label-text">Industry</span>
+          <select id="industry" custom-select>
+            <option value="">Select Your Industry</option>
+            <option value="Gas Station/Convinience">
+              Gas Station/Convinience
+            </option>
+            <option value="Supplement Store">Supplement Store</option>
+            <option value="Amazon">Amazon</option>
+            <option value="Other Retailers">Other Retailers</option>
+            <option value="Chain">Chain</option>
+            <option value="Individual">Individual</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="padding-sides">
+        <button type="submit" class="submit">
+          I WANT TO BE A PARTNER
+          <div class="lds-dual-ring"></div>
+        </button>
+        <p class="api-error"></p>
+      </div>
+    </form>
+  </body>
+</html>
