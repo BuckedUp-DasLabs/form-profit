@@ -149,6 +149,11 @@ form.addEventListener("submit", async (e) => {
   const spinner = document.querySelector(".lds-dual-ring");
   button.toggleAttribute("disabled");
   spinner.classList.toggle("active");
+  const industryValue = document.getElementById("industry").value;
+  if(industryValue === "Individual"){
+    window.location.href = redirectUrls[industryValue];
+    return;
+  } 
   if (!validateForm()) {
     alert("Required field missing or invalid.");
     button.toggleAttribute("disabled");
@@ -157,10 +162,8 @@ form.addEventListener("submit", async (e) => {
   }
   const body = getValues();
   body["customer_group"] = "wholesale_pending"
-  console.log(body)
-  return
   const response = await fetch(
-    "",
+    "https://ar5vgv5qw5.execute-api.us-east-1.amazonaws.com/customer",
     {
       method: "POST",
       headers: {
@@ -172,12 +175,10 @@ form.addEventListener("submit", async (e) => {
   if (!response.ok) {
     const responseLog = await response.json();
     apiErrorField.classList.toggle("active");
-    if (responseLog.error_code === "AlreadyAffiliate")
-      responseLog.error_message = "The customer account is already associated with a ambassador application"
     apiErrorField.innerHTML = responseLog.error_message;
     button.toggleAttribute("disabled");
     spinner.classList.toggle("active");
     return;
   }
-  window.location.href = redirectUrls[document.getElementById("industry").value]
+  window.location.href = redirectUrls[industryValue]
 });
