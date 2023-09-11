@@ -1,3 +1,13 @@
+
+const redirectUrls = {
+  "Gas Station/Convinience": "https://get.buckedup.com/Profit_Thankyou",
+  "Supplement Store": "https://get.buckedup.com/Profit_Thankyou",
+  "Amazon": "https://get.buckedup.com/Profit_Thankyou",
+  "Other Retailers": "https://get.buckedup.com/Profit_Thankyou",
+  "Chain": "https://get.buckedup.com/Profit_Thankyou",
+  "Individual": "https://get.buckedup.com/ambassadors",
+}
+
 const form = document.querySelector("#custom-form");
 const allInputs = form.querySelectorAll("input");
 
@@ -151,7 +161,14 @@ form.addEventListener("submit", async (e) => {
   spinner.classList.toggle("active");
   const industryValue = document.getElementById("industry").value;
   if(industryValue === "Individual"){
-    window.location.href = redirectUrls[industryValue];
+    const urlParams = new URLSearchParams()
+    urlParams.set("first-name",document.querySelector("#first-name").value)
+    urlParams.set("last-name",document.querySelector("#last-name").value)
+    urlParams.set("email",document.querySelector("#email").value)
+    urlParams.set("phone",document.querySelector("#phone").value)
+    urlParams.set("state",document.querySelector("#state").value)
+    urlParams.set("city",document.querySelector("#city").value)
+    window.location.href = redirectUrls[industryValue] + `?${urlParams}`;
     return;
   } 
   if (!validateForm()) {
