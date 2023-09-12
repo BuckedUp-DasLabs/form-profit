@@ -135,6 +135,7 @@ const getValues = () => {
   formFields.last_name = document.querySelector("#last-name").value;
   formFields.email = document.querySelector("#email").value;
   formFields.phone = document.querySelector("#phone").value;
+  formFields.industry = document.querySelector("#industry").value;
   formFields.address = {}
   formFields.address.city = document.querySelector("#city").value;
   formFields.address.country_code = "US"
